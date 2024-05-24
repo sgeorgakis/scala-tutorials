@@ -20,3 +20,5 @@ resolvers += Resolver.jcenterRepo
 addSbtPlugin("net.aichler" % "sbt-jupiter-interface" % "0.11.1")
 
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
+
+addSbtPlugin("com.github.sbt" % "sbt-release" % "1.4.0")
