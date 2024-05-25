@@ -12,14 +12,16 @@ releaseUseGlobalVersion := false
 releaseVersionBump := sbtrelease.Version.Bump.NextStable
 publish / skip := true
 
-releaseTagComment        := s"Releasing ${(ThisBuild / version).value} using sbt-release"
-releaseCommitMessage     := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
+releaseTagComment := s"Releasing ${(ThisBuild / version).value} using sbt-release"
+releaseCommitMessage := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
 releaseNextCommitMessage := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
 
-releaseNextVersion := (releaseVersion => releaseVersion.split("\\.") match {
-  case Array(major, minor, bugfix) =>
-    s"$major.$minor.${bugfix.toInt + 1}"
-})
+releaseNextVersion := (releaseVersion =>
+  releaseVersion.split("\\.") match {
+    case Array(major, minor, bugfix) =>
+      s"$major.$minor.${bugfix.toInt + 1}"
+  }
+)
 
 val customReleaseStep = ReleaseStep(action = step => {
   val extracted = Project.extract(step)
@@ -28,16 +30,16 @@ val customReleaseStep = ReleaseStep(action = step => {
   step
 })
 releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies,              // : ReleaseStep
-  inquireVersions,                        // : ReleaseStep
-  runClean,                               // : ReleaseStep
-  runTest,                                // : ReleaseStep
-  setReleaseVersion,                      // : ReleaseStep
-  commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
-  tagRelease,                             // : ReleaseStep
+  checkSnapshotDependencies, // : ReleaseStep
+  inquireVersions, // : ReleaseStep
+  runClean, // : ReleaseStep
+  runTest, // : ReleaseStep
+  setReleaseVersion, // : ReleaseStep
+  commitReleaseVersion, // : ReleaseStep, performs the initial git checks
+  tagRelease, // : ReleaseStep
 //  publishArtifacts,                       // : ReleaseStep, checks whether `publishTo` is properly set up
-  setNextVersion,                         // : ReleaseStep
-  commitNextVersion,                      // : ReleaseStep
+  setNextVersion, // : ReleaseStep
+  commitNextVersion, // : ReleaseStep
   customReleaseStep
 //  pushChanges                             // : ReleaseStep, also checks that an upstream branch is properly configured
 )
@@ -368,7 +370,7 @@ lazy val scala_akka_3 = (project in file("scala-akka-3"))
 
 val monocleVersion = "2.1.0"
 val slickVersion = "3.5.1"
-val shapelessVersion = "2.3.11"
+val shapelessVersion = "2.3.12"
 val scalazVersion = "7.3.8"
 val fs2Version = "3.10.2"
 val reactiveMongo = "1.1.0-RC12"
