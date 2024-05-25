@@ -12,14 +12,16 @@ releaseUseGlobalVersion := false
 releaseVersionBump := sbtrelease.Version.Bump.NextStable
 publish / skip := true
 
-releaseTagComment        := s"Releasing ${(ThisBuild / version).value} using sbt-release"
-releaseCommitMessage     := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
+releaseTagComment := s"Releasing ${(ThisBuild / version).value} using sbt-release"
+releaseCommitMessage := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
 releaseNextCommitMessage := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
 
-releaseNextVersion := (releaseVersion => releaseVersion.split("\\.") match {
-  case Array(major, minor, bugfix) =>
-    s"$major.$minor.${bugfix.toInt + 1}"
-})
+releaseNextVersion := (releaseVersion =>
+  releaseVersion.split("\\.") match {
+    case Array(major, minor, bugfix) =>
+      s"$major.$minor.${bugfix.toInt + 1}"
+  }
+)
 
 val customReleaseStep = ReleaseStep(action = step => {
   val extracted = Project.extract(step)
@@ -28,16 +30,16 @@ val customReleaseStep = ReleaseStep(action = step => {
   step
 })
 releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies,              // : ReleaseStep
-  inquireVersions,                        // : ReleaseStep
-  runClean,                               // : ReleaseStep
-  runTest,                                // : ReleaseStep
-  setReleaseVersion,                      // : ReleaseStep
-  commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
-  tagRelease,                             // : ReleaseStep
+  checkSnapshotDependencies, // : ReleaseStep
+  inquireVersions, // : ReleaseStep
+  runClean, // : ReleaseStep
+  runTest, // : ReleaseStep
+  setReleaseVersion, // : ReleaseStep
+  commitReleaseVersion, // : ReleaseStep, performs the initial git checks
+  tagRelease, // : ReleaseStep
 //  publishArtifacts,                       // : ReleaseStep, checks whether `publishTo` is properly set up
-  setNextVersion,                         // : ReleaseStep
-  commitNextVersion,                      // : ReleaseStep
+  setNextVersion, // : ReleaseStep
+  commitNextVersion, // : ReleaseStep
   customReleaseStep
 //  pushChanges                             // : ReleaseStep, also checks that an upstream branch is properly configured
 )
@@ -667,7 +669,7 @@ lazy val zio = (project in file("zio"))
     libraryDependencies += zioTestSbt,
     libraryDependencies += "dev.zio" %% "zio-kafka" % "2.7.4",
     libraryDependencies += zioJsonDep,
-    libraryDependencies += "dev.zio" %% "zio-prelude" % "1.0.0-RC23",
+    libraryDependencies += "dev.zio" %% "zio-prelude" % "1.0.0-RC26",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.18" % Test,
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
   )
