@@ -12,14 +12,16 @@ releaseUseGlobalVersion := false
 releaseVersionBump := sbtrelease.Version.Bump.NextStable
 publish / skip := true
 
-releaseTagComment        := s"Releasing ${(ThisBuild / version).value} using sbt-release"
-releaseCommitMessage     := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
+releaseTagComment := s"Releasing ${(ThisBuild / version).value} using sbt-release"
+releaseCommitMessage := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
 releaseNextCommitMessage := s"Setting version to ${(ThisBuild / version).value} using sbt-release"
 
-releaseNextVersion := (releaseVersion => releaseVersion.split("\\.") match {
-  case Array(major, minor, bugfix) =>
-    s"$major.$minor.${bugfix.toInt + 1}"
-})
+releaseNextVersion := (releaseVersion =>
+  releaseVersion.split("\\.") match {
+    case Array(major, minor, bugfix) =>
+      s"$major.$minor.${bugfix.toInt + 1}"
+  }
+)
 
 val customReleaseStep = ReleaseStep(action = step => {
   val extracted = Project.extract(step)
@@ -28,16 +30,16 @@ val customReleaseStep = ReleaseStep(action = step => {
   step
 })
 releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies,              // : ReleaseStep
-  inquireVersions,                        // : ReleaseStep
-  runClean,                               // : ReleaseStep
-  runTest,                                // : ReleaseStep
-  setReleaseVersion,                      // : ReleaseStep
-  commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
-  tagRelease,                             // : ReleaseStep
+  checkSnapshotDependencies, // : ReleaseStep
+  inquireVersions, // : ReleaseStep
+  runClean, // : ReleaseStep
+  runTest, // : ReleaseStep
+  setReleaseVersion, // : ReleaseStep
+  commitReleaseVersion, // : ReleaseStep, performs the initial git checks
+  tagRelease, // : ReleaseStep
 //  publishArtifacts,                       // : ReleaseStep, checks whether `publishTo` is properly set up
-  setNextVersion,                         // : ReleaseStep
-  commitNextVersion,                      // : ReleaseStep
+  setNextVersion, // : ReleaseStep
+  commitNextVersion, // : ReleaseStep
   customReleaseStep
 //  pushChanges                             // : ReleaseStep, also checks that an upstream branch is properly configured
 )
@@ -398,7 +400,7 @@ lazy val scala2_libraries =
         enumeratumDep,
         "io.monix" %% "monix" % monixVersion,
         pureConfigDep,
-        "com.github.pureconfig" %% "pureconfig-enumeratum" % "0.17.6",
+        "com.github.pureconfig" %% "pureconfig-enumeratum" % "0.17.7",
         "com.typesafe" % "config" % "1.4.3",
         "org.scala-lang.modules" %% "scala-async" % "1.0.1",
         "com.clever-cloud.pulsar4s" %% "pulsar4s-core" % "2.9.1",
@@ -527,7 +529,7 @@ lazy val refined = (project in file("scala-libraries-standalone/refined"))
 
 val spireVersion = "0.18.0"
 val kafkaVersion = "7.6.1-ce"
-val pureconfigVersion = "0.17.6"
+val pureconfigVersion = "0.17.7"
 val jackSonVersion = "2.17.1"
 val log4jApiScalaVersion = "13.1.0"
 val log4jVersion = "2.20.0"
