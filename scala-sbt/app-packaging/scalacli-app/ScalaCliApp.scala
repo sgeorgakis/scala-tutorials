@@ -1,4 +1,4 @@
-//> using scala 3.4.2
+//> using scala 3.4.3
 //> using dep com.lihaoyi::os-lib:0.10.1
 package com.baeldung.scalacli
 import os._
