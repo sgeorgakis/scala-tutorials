@@ -598,9 +598,16 @@ lazy val scala_libraries_persistence =
         doobieCore,
         doobiePGDep,
         "org.reactivemongo" %% "reactivemongo" % reactiveMongo,
-        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo,
+        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude("org.scala-lang.modules", "scala-parser-combinators_2.13"),
         "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % embedMongoVersion % IntegrationTest,
-        logback
+        logback,
+        "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
+        "org.postgresql" % "postgresql" % "42.7.4",
+        "com.github.tminglei" %% "slick-pg" % "0.22.2",
+        "org.json4s" %% "json4s-native" % "4.0.7",
+        "com.github.tminglei" %% "slick-pg_json4s" % "0.22.2",
+        "com.dimafeng" %% "testcontainers-scala-scalatest" % "0.41.4" % IntegrationTest,
+        "com.dimafeng" %% "testcontainers-scala-postgresql" % "0.41.4" % IntegrationTest
       )
     )
 
