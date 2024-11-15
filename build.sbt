@@ -452,7 +452,7 @@ lazy val scala_libraries = (project in file("scala-libraries"))
       "org.elasticmq" %% "elasticmq-core" % "1.6.8",
       "org.elasticmq" %% "elasticmq-server" % "1.6.8",
       "org.elasticmq" %% "elasticmq-rest-sqs" % "1.6.8",
-      "software.amazon.awssdk" % "sqs" % "2.29.9"
+      "software.amazon.awssdk" % "sqs" % "2.29.13"
     ),
     Defaults.itSettings
   )
@@ -576,7 +576,7 @@ lazy val scala_libraries_testing = (project in file("scala-libraries-testing"))
       "com.amazonaws" % "aws-java-sdk-s3" % "1.12.777" % IntegrationTest,
       "com.dimafeng" %% "testcontainers-scala-scalatest" % "0.41.3" % IntegrationTest,
       "com.dimafeng" %% "testcontainers-scala-localstack-v2" % "0.41.3" % IntegrationTest,
-      "software.amazon.awssdk" % "s3" % "2.29.9"
+      "software.amazon.awssdk" % "s3" % "2.29.13"
     ),
     Defaults.itSettings,
     IntegrationTest / fork := true
@@ -598,7 +598,7 @@ lazy val scala_libraries_persistence =
         doobieCore,
         doobiePGDep,
         "org.reactivemongo" %% "reactivemongo" % reactiveMongo,
-        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude("org.scala-lang.modules", "scala-parser-combinators_2.13"),
+        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude ("org.scala-lang.modules", "scala-parser-combinators_2.13"),
         "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % embedMongoVersion % IntegrationTest,
         logback,
         "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
