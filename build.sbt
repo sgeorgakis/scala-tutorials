@@ -557,7 +557,7 @@ lazy val scala_libraries_fp = (project in file("scala-libraries-fp"))
       "org.http4s" %% "http4s-blaze-server" % http4sBlaze,
       "org.http4s" %% "http4s-blaze-client" % http4sBlaze,
       catEffectTest,
-      "org.typelevel" %% "cats-effect-testing-scalatest" % "1.5.0" % Test,
+      "org.typelevel" %% "cats-effect-testing-scalatest" % "1.6.0" % Test,
       "org.scalaz" %% "scalaz-core" % scalazVersion,
       "junit" % "junit" % "4.13.2" % Test,
       "org.typelevel" %% "spire" % spireVersion
@@ -581,7 +581,6 @@ lazy val scala_libraries_testing = (project in file("scala-libraries-testing"))
       "com.dimafeng" %% "testcontainers-scala-scalatest" % scalaTestContainersVersion % IntegrationTest,
       "com.dimafeng" %% "testcontainers-scala-localstack-v2" % scalaTestContainersVersion % IntegrationTest,
       "software.amazon.awssdk" % "s3" % "2.29.9"
-
     ),
     Defaults.itSettings,
     IntegrationTest / fork := true
@@ -603,7 +602,7 @@ lazy val scala_libraries_persistence =
         doobieCore,
         doobiePGDep,
         "org.reactivemongo" %% "reactivemongo" % reactiveMongo,
-        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude("org.scala-lang.modules", "scala-parser-combinators_2.13"),
+        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude ("org.scala-lang.modules", "scala-parser-combinators_2.13"),
         "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % embedMongoVersion % IntegrationTest,
         logback,
         "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
