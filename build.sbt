@@ -577,11 +577,10 @@ lazy val scala_libraries_testing = (project in file("scala-libraries-testing"))
       scalaMock,
       "com.lihaoyi" %% "utest" % "0.8.4" % "test",
       munitDep,
-      "com.amazonaws" % "aws-java-sdk-s3" % "1.12.778" % IntegrationTest,
+      "com.amazonaws" % "aws-java-sdk-s3" % "1.12.780" % IntegrationTest,
       "com.dimafeng" %% "testcontainers-scala-scalatest" % scalaTestContainersVersion % IntegrationTest,
       "com.dimafeng" %% "testcontainers-scala-localstack-v2" % scalaTestContainersVersion % IntegrationTest,
       "software.amazon.awssdk" % "s3" % "2.29.9"
-
     ),
     Defaults.itSettings,
     IntegrationTest / fork := true
@@ -603,7 +602,7 @@ lazy val scala_libraries_persistence =
         doobieCore,
         doobiePGDep,
         "org.reactivemongo" %% "reactivemongo" % reactiveMongo,
-        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude("org.scala-lang.modules", "scala-parser-combinators_2.13"),
+        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude ("org.scala-lang.modules", "scala-parser-combinators_2.13"),
         "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % embedMongoVersion % IntegrationTest,
         logback,
         "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
