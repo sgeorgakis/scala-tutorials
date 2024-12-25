@@ -352,7 +352,7 @@ val scalazVersion = "7.3.8"
 val fs2Version = "3.11.0"
 val reactiveMongo = "1.1.0-RC14"
 val slickPgVersion = "0.22.2"
-val scalaTestContainersVersion = "0.41.4"
+val scalaTestContainersVersion = "0.41.5"
 val postgresqlVersion = "42.7.4"
 val json4sVersion = "4.0.7"
 
@@ -581,7 +581,6 @@ lazy val scala_libraries_testing = (project in file("scala-libraries-testing"))
       "com.dimafeng" %% "testcontainers-scala-scalatest" % scalaTestContainersVersion % IntegrationTest,
       "com.dimafeng" %% "testcontainers-scala-localstack-v2" % scalaTestContainersVersion % IntegrationTest,
       "software.amazon.awssdk" % "s3" % "2.29.9"
-
     ),
     Defaults.itSettings,
     IntegrationTest / fork := true
@@ -603,7 +602,7 @@ lazy val scala_libraries_persistence =
         doobieCore,
         doobiePGDep,
         "org.reactivemongo" %% "reactivemongo" % reactiveMongo,
-        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude("org.scala-lang.modules", "scala-parser-combinators_2.13"),
+        "org.reactivemongo" %% "reactivemongo-akkastream" % reactiveMongo exclude ("org.scala-lang.modules", "scala-parser-combinators_2.13"),
         "de.flapdoodle.embed" % "de.flapdoodle.embed.mongo" % embedMongoVersion % IntegrationTest,
         logback,
         "com.typesafe.slick" %% "slick-hikaricp" % slickVersion,
