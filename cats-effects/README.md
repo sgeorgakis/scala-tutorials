@@ -8,3 +8,4 @@
 - [Error Handling in Cats Effect](https://www.baeldung.com/scala/cats-effect-error-handling)
 - [Cancellation in Cats Effect](https://www.baeldung.com/scala/cats-effect-cancellation)
 - [Configuration Loading With Ciris](https://www.baeldung.com/scala/ciris-configuration-loading)
+- [IOApp in Cats Effect]()
