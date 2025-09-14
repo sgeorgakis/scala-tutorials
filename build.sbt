@@ -185,7 +185,7 @@ lazy val scala_core_dates =
       libraryDependencies ++= scalaTestDeps,
       libraryDependencies += "joda-time" % "joda-time" % "2.13.0",
       libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "3.0.0",
-      libraryDependencies += "com.typesafe" % "config" % "1.4.3"
+      libraryDependencies += "com.typesafe" % "config" % "1.4.5"
     )
 
 lazy val scala_lang = (project in file("scala-lang-modules/scala-lang"))
@@ -392,7 +392,7 @@ lazy val scala2_libraries =
         "io.monix" %% "monix" % monixVersion,
         pureConfigDep,
         "com.github.pureconfig" %% "pureconfig-enumeratum" % "0.17.8",
-        "com.typesafe" % "config" % "1.4.3",
+        "com.typesafe" % "config" % "1.4.5",
         "org.scala-lang.modules" %% "scala-async" % "1.0.1",
         "com.clever-cloud.pulsar4s" %% "pulsar4s-core" % "2.10.0",
         "com.clever-cloud.pulsar4s" %% "pulsar4s-jackson" % "2.10.0",
@@ -633,7 +633,7 @@ lazy val scala_libraries_config = (project in file("scala-libraries-config"))
     scalaVersion := scala3Version,
     libraryDependencies ++= scalaTestDeps,
     libraryDependencies ++= Seq(
-      "com.typesafe" % "config" % "1.4.3",
+      "com.typesafe" % "config" % "1.4.5",
       munitDep,
       "com.github.japgolly.clearconfig" %% "core" % "3.1.0",
       catsEffect,
